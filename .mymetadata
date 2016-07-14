@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="Resourcenn"
+  id="myeclipse.1460014456666"
+  context-root="/Resource"
+  j2ee-spec="5.0"
+  archive="Resourcenn.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

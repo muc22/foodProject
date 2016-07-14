@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+     <constant name="struts.i18n.encoding" value="gbk"/>
+     <constant name="struts.devMode" value="true" />
+     <!--Struts2中Action对象的创建交给spring完成-->
+     <constant name="struts.objectFactory" value="spring" />   
+       
+ <package name="default" extends="struts-default">
+        <!-- 注意此包的写法 -->
+        
+	     <!-- 将上面的拦截器栈作为这个工程的拦截器，也就是自定义的登录拦截器和 struts默认拦截器都起作用-->
+	     <default-interceptor-ref name="myInterceptors"></default-interceptor-ref>
+	     <!-- 适用于所有的action -->
+	     <global-results>
+	          <result name="login" type="redirect">/MyJsp.jsp</result>
+	          <result name="success" type="redirect">${prePage}</result> 
+	     </global-results>
+     </package>
+    
+	  <package name="like" namespace="/like" extends="struts-default">
+
+	        <action name="like_*" class="likeAction" method="{1}">
+	        	
+            <result name="show_view">/show_like.jsp</result>
+             <result name= "delete_message">/delete_message.jsp</result>
+	        	<result name="message">/message.jsp</result>
+	        </action>  
+	 </package>
+           
+	  <package name="res" namespace="/res" extends="struts-default">
+	        <action name="res_*" class="resAction" method="{1}">
+	        	<result name="main_view">/MyJsp.jsp</result>
+	        	<result name = "show_view">/MyJsp.jsp</result>
+	        	<result name = "show_resview">/MyJsp.jsp</result>
+	        	<result name="message">/add_message.jsp</result>
+	        	<result name = "detail_view">/detail.jsp</result>
+    		
+	        </action>  
+	 </package>	 
+     <package name="user" namespace="/user" extends="struts-default">
+     <action name="user_*" class="userAction" method = "{1}">
+    	    <result name ="show_view" type="chain">
+	    		<param name="actionName">res_showRes</param>
+	    		<param name ="namespace">/res</param>
+	    		<param name="param1">${user.username}</param>
+    	    </result>
+
+    	<result name="input">/MyJsp.jsp</result>
+     </action>
+     </package>
+     
+</struts>

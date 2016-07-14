@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table name="like" catalog="resources"
+		class="com.resource.model.Like">
+		<primary-key>
+			<generator class="assigned"></generator>
+		</primary-key>
+	</table>
+	<table name="record" catalog="resources"
+		class="com.resource.model.Record">
+		<primary-key>
+			<generator class="assigned"></generator>
+		</primary-key>
+	</table>
+	<table name="resource" catalog="resources"
+		class="com.resource.model.Resource">
+		<primary-key>
+			<generator class="assigned"></generator>
+		</primary-key>
+	</table>
+	<table name="user" catalog="resources"
+		class="com.resource.model.User">
+		<primary-key>
+			<generator class="assigned"></generator>
+		</primary-key>
+	</table>
+<table name="res" catalog="resources" class="com.resource.model.Res">
+	<primary-key>
+		<generator class="assigned"></generator>
+	</primary-key>
+</table>
+</hibernate-reverse-engineering>
